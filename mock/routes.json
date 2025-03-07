@@ -1,5 +1,6 @@
 {
-  "/api/*": "/$1",
-  "/api/company/search": "/company-search",
-  "/api/member/send-verify-email": "member-send-verify-email"
+  "/api/announce": "/announceHeaders",
+  "/api/announce/:announceId": "/announceContents?announceId=:announceId",
+  "/api/company/search": "/companies",
+  "/api/member/send-verify-email": "/emails"
 }
