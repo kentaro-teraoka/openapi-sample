@@ -1,4 +1,5 @@
 {
   "/api/*": "/$1",
-  "/api/company/search": "/company_search"
+  "/api/company/search": "/company-search",
+  "/api/member/send-verify-email": "member-send-verify-email"
 }

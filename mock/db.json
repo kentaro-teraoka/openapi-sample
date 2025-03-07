@@ -22,7 +22,7 @@
             "body": "このお知らせの詳細な内容をここに記載します。"
         }
     ],
-    "company_search": [
+    "company-search": [
         {
             "corporateNumber": "7010901049921",
             "name": "株式会社ラボル",
@@ -35,5 +35,6 @@
             "fullAddressWithZipCode": "1580097 東京都世田谷区用賀４丁目１０番１号",
             "fullAddress": "東京都世田谷区用賀４丁目１０番１号"
         }
-    ]
+    ],
+    "member-send-verify-email": {}
 } 

@@ -137,6 +137,48 @@
           }
         }
       }
+    },
+    "/api/member/send-verify-email": {
+      "post": {
+        "tags": [
+          "member-api-controller"
+        ],
+        "summary": "メール認証",
+        "operationId": "sendVerifyEmailUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailForm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mono"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -177,6 +219,15 @@
       "Mono": {
         "title": "Mono",
         "type": "object"
+      },
+      "EmailForm": {
+        "title": "EmailForm",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
       }
     }
   }
