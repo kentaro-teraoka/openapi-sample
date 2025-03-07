@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "generate-api": "openapi-generator-cli generate -i ./swagger.yaml -g typescript-axios -o ./src/api-client",
+    "generate-api": "openapi-generator-cli generate -i ./swagger.json -g typescript-axios -o ./src/api-client",
     "mock-api": "json-server --watch db.json --port 8080"
   },
   "dependencies": {
