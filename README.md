@@ -30,7 +30,7 @@ $ npm run postinstall
 $ npm run generate-api
 ```
 
-## JSON Serverを使用してモックAPIを起動 (ポート8080)
+## JSON Serverを使用してモックAPIを起動 (ポート3001)
 ```
 $ npm run mock-api
 ```
