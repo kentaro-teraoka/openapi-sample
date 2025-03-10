@@ -2,5 +2,6 @@
   "/api/announce": "/announceHeaders",
   "/api/announce/:announceId": "/announceContents?announceId=:announceId",
   "/api/company/search": "/companies",
-  "/api/member/send-verify-email": "/emails"
+  "/api/member/send-verify-email": "/emails",
+  "/api/member/registration": "/memberRegistrations" 
 }

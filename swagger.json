@@ -179,6 +179,48 @@
           }
         }
       }
+    },
+    "/api/member/registration": {
+      "post": {
+        "tags": [
+          "会員登録"
+        ],
+        "summary": "仮会員登録",
+        "operationId": "registerUsingPOST_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MemberRegistrationForm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mono"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -225,6 +267,70 @@
         "type": "object",
         "properties": {
           "email": {
+            "type": "string"
+          }
+        }
+      },
+      "MemberRegistrationForm": {
+        "title": "MemberRegistrationForm",
+        "required": [
+          "email",
+          "emailVerificationMethodType",
+          "firstNameKana",
+          "firstNameKanji",
+          "gender",
+          "lastNameKana",
+          "lastNameKanji",
+          "monthlyAverageSales",
+          "occupationCode",
+          "surveyResult"
+        ],
+        "type": "object",
+        "properties": {
+          "businessName": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailVerificationMethodType": {
+            "type": "string"
+          },
+          "firstNameKana": {
+            "type": "string"
+          },
+          "firstNameKanji": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "lastNameKana": {
+            "type": "string"
+          },
+          "lastNameKanji": {
+            "type": "string"
+          },
+          "memberOccupationEvidenceUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "monthlyAverageSales": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "occupationCode": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "surveyResult": {
             "type": "string"
           }
         }
