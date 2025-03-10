@@ -6,7 +6,7 @@
 - swaggerからAPI仕様を参照し、フロントにAPI clientファイルを自動生成
 - Vue側でAPI clientの型や関数を呼び出し、期待できる挙動が行えるか
 
-※labolのswaggerから、一部ずつ切り取ってコピペして検証
+※labolのswaggerから、一部ずつ切り取ってコピペして検証  
 ※バックエンドコードはなく、DBはmock用のものです
 
 ## スクリプトコマンド一覧
@@ -36,10 +36,15 @@ $ npm run preview
 $ npm run postinstall
 ```
 
-### OpenAPI Generator を使用してTypeScript/Axiosクライアントを生成
+### API clientを生成
 ```
-$ npm run generate-api
+$ npm run openapi
 ```
+このコマンドで、以下4つのlibraryのコマンドが実行されます
+- @openapitools/openapi-generator-cli
+- openapi-typescript
+- openapi-typescript-codegen
+- swagger-typescript-api
 
 ### JSON Serverを使用してモックAPIを起動 (ポート3001)
 ```

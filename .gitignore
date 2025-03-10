@@ -24,4 +24,4 @@ logs
 !.env.example
 
 # Generated API Client
-src/api-client/
+src/*

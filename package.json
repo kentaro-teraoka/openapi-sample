@@ -8,7 +8,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "generate-api": "openapi-generator-cli generate -i ./swagger.json -g typescript-axios -o ./src/api-client",
+    "openapi": "npm run openapi-generator-cli && npm run openapi-typescript && npm run openapi-typescript-codegen && npm run swagger-typescript-api",
+    "openapi-generator-cli": "openapi-generator-cli generate -i ./swagger.json -g typescript-axios -o ./src/openapi-generator-cli/api-client",
+    "openapi-typescript": "openapi-typescript ./swagger.json -o ./src/openapi-typescript/types/api.d.ts",
+    "openapi-typescript-codegen": "npx openapi-typescript-codegen --input ./swagger.json --output ./src/openapi-typescript-codegen",
+    "swagger-typescript-api": "swagger-typescript-api -p ./swagger.json -o ./src/swagger-typescript-api",
     "mock-api": "json-server --watch mock/db.json -p 3001 --routes mock/routes.json"
   },
   "dependencies": {
@@ -19,6 +23,10 @@
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.15.3",
     "axios": "^1.8.2",
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "openapi-typescript": "^7.6.1",
+    "openapi-typescript-codegen": "^0.29.0",
+    "swagger-typescript-api": "^13.0.23",
+    "typescript": "^5.8.2"
   }
 }
