@@ -14,11 +14,7 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
-import type { components } from '~/src/openapi-typescript/types/api';
-
-type AnnounceHeaderQuery = components['schemas']['AnnounceHeaderQuery'];
-type EmailForm = components['schemas']['EmailForm'];
-type MemberRegistrationForm = components['schemas']['MemberRegistrationForm'];
+import type { AnnounceHeaderQuery, EmailForm, MemberRegistrationForm } from '~/src/openapi-typescript/types/api';
 
 const announcements = ref<Array<AnnounceHeaderQuery>>([]);
 
