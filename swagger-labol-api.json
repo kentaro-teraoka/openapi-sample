@@ -179,6 +179,10 @@
       "description": "Juridic Person Registration Controller"
     },
     {
+      "name": "landing-page-controller",
+      "description": "Landing Page Controller"
+    },
+    {
       "name": "mail-subscription-controller",
       "description": "Mail Subscription Controller"
     },
@@ -23820,6 +23824,50 @@
         }
       }
     },
+    "/api/factoring-request-history/available-invoice-repeat-request-amount/{invoiceId}": {
+      "get": {
+        "tags": [
+          "factoring-request-history-controller"
+        ],
+        "summary": "買増申請可能額を取得する",
+        "operationId": "getAvailableInvoiceRepeatRequestAmountUsingGET",
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "description": "invoiceId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/api/factoring-request-history/repeat-status-list": {
       "get": {
         "tags": [
@@ -27356,6 +27404,188 @@
         }
       }
     },
+    "/api/invoice-factoring/invoice-repeat": {
+      "post": {
+        "tags": [
+          "invoice-factoring-api-controller"
+        ],
+        "summary": "買増し申請の用のエンドポイント",
+        "operationId": "requestInvoiceRepeatUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FactoringInvoiceRepeatRequestForm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/invoice-factoring/remand-message/{invoiceId}": {
+      "get": {
+        "tags": [
+          "invoice-factoring-api-controller"
+        ],
+        "summary": "差戻メッセージ取得",
+        "operationId": "getRemandMessageUsingGET",
+        "parameters": [
+          {
+            "name": "accountNonExpired",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "accountNonLocked",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "credentialsNonExpired",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enabled",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "description": "invoiceId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userIdVo.userId",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userIdVo.userType",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ENTERPRISE",
+                "MEMBER"
+              ]
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/api/invoice-factoring/requestAmount/{requestAmount}": {
       "get": {
         "tags": [
@@ -29224,6 +29454,48 @@
           },
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/landing-page/{path}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "LPの詳細を取得",
+        "operationId": "getLandingPageUsingGET",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "description": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandingPageViewModel"
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -78432,6 +78704,53 @@
           }
         }
       },
+      "FactoringInvoiceRepeatRequestForm": {
+        "title": "FactoringInvoiceRepeatRequestForm",
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "コメント"
+          },
+          "commissionDiscountCouponId": {
+            "type": "integer",
+            "description": "手数料割引クーポンID",
+            "format": "int64",
+            "example": 1
+          },
+          "evidenceFileNameAndUrlsByEvidenceForm": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FileNameAndUrl"
+              }
+            },
+            "description": "エビデンス"
+          },
+          "invoiceId": {
+            "type": "integer",
+            "description": "請求書ID",
+            "format": "int64"
+          },
+          "parentInvoiceId": {
+            "type": "integer",
+            "description": "親請求書",
+            "format": "int64"
+          },
+          "requestAmount": {
+            "type": "integer",
+            "description": "買取希望額",
+            "format": "int32",
+            "example": 10000
+          },
+          "utilizationPurpose": {
+            "type": "string",
+            "description": "利用目的",
+            "example": "CEREMONIAL_OCCASIONS"
+          }
+        }
+      },
       "FactoringRequestForm": {
         "title": "FactoringRequestForm",
         "type": "object",
@@ -78557,6 +78876,9 @@
         "type": "object",
         "properties": {
           "canContactCompany": {
+            "type": "boolean"
+          },
+          "canInvoiceRepeatRequest": {
             "type": "boolean"
           },
           "evidences": {
@@ -79033,6 +79355,36 @@
           "withholdingTaxAmount": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "LandingPageViewModel": {
+        "title": "LandingPageViewModel",
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "buttonBackgroundColor": {
+            "type": "string"
+          },
+          "buttonBorderTextColor": {
+            "type": "string"
+          },
+          "buttonText": {
+            "type": "string"
+          },
+          "buttonUrl": {
+            "type": "string"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "partnershipLandingPagePath": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
