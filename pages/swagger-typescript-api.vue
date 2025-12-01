@@ -1,4 +1,6 @@
-<template>
+<template></template>
+
+<!-- <template>
   <div>
     <h1>Announcements</h1>
     <ul>
@@ -63,4 +65,4 @@ const registerMember = async () => {
 onMounted(() => {
   fetchAnnouncements();
 });
-</script>
+</script> -->
