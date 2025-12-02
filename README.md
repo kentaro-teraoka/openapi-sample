@@ -38,13 +38,9 @@ $ npm run postinstall
 
 ### API clientを生成
 ```
-$ npm run openapi
+$ npm run generate:api-client
 ```
-このコマンドで、以下4つのlibraryのコマンドが実行されます
-- @openapitools/openapi-generator-cli
-- openapi-typescript
-- openapi-typescript-codegen
-- swagger-typescript-api
+このコマンドで、swagger.jsonをopenapi-typescriptに解析させ、型情報を生成します。
 
 ### JSON Serverを使用してモックAPIを起動 (ポート3001)
 ```
