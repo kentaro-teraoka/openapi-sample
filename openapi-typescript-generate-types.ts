@@ -19,9 +19,9 @@ async function generateTypes() {
             : DATE;
         }
       },
-      propertiesRequiredByDefault: true,
-      rootTypes: true,
-      rootTypesNoSchemaPrefix: true,
+      propertiesRequiredByDefault: true, // デフォルトで、全てのプロパティを必須として扱う
+      rootTypes: true, // ルートレベルの型定義を生成する
+      rootTypesNoSchemaPrefix: true, // スキーマ名に"Schema" prefixを付けない
     },
   );
 
